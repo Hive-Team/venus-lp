@@ -1,0 +1,239 @@
+///////////
+//**尺寸api**
+//height,width,font-size,top,right,bottom,left,border-radius,margin,padding
+///////////
+
+
+///////////
+//单值
+//@type为必传值
+///////////
+.baseSize(@type;@now_s:'';@w:@default_w){
+  //数字但不是百分比数
+  .if(@s) when(isnumber(@s)) and (ispercentage(@s) = false){
+    @{type}:unit(@s*@w/@default_w,@unit);
+  }
+  //字符串或者百分比数
+  .if(@s) when(isstring(@s)),(ispercentage(@s)){
+    @{type}:@s;
+  }
+  //关键字
+  .if(@s) when(iskeyword(@s)){
+    @{type}:@s;
+  }
+  .if(@now_s);
+}
+
+
+//高度
+.height(@s:'';@w:@default_w){
+  .baseSize(@type:height;@now_s:@s;@w:@w);
+}
+
+//宽度
+.width(@s:'';@w:@default_w){
+  .baseSize(@type:width;@now_s:@s;@w:@w);
+}
+
+//字体尺寸
+.fontSize(@s:'';@w:@default_w){
+  .baseSize(@type:font-size;@now_s:@s;@w:@w);
+}
+
+//行高
+.lineHeight(@s:'';@w:@default_w){
+  .baseSize(@type:line-height;@now_s:@s;@w:@w);
+}
+
+
+//位置
+.top(@s:'';@w:@default_w){
+  .baseSize(@type:top;@now_s:@s;@w:@w);
+}
+.right(@s:'';@w:@default_w){
+  .baseSize(@type:right;@now_s:@s;@w:@w);
+}
+.bottom(@s:'';@w:@default_w){
+  .baseSize(@type:bottom;@now_s:@s;@w:@w);
+}
+.left(@s:'';@w:@default_w){
+  .baseSize(@type:left;@now_s:@s;@w:@w);
+}
+
+
+//外边距
+.marginTop(@s:'';@w:@default_w){
+  .baseSize(@type:margin-top;@now_s:@s;@w:@w);
+}
+.marginRight(@s:'';@w:@default_w){
+  .baseSize(@type:margin-right;@now_s:@s;@w:@w);
+}
+.marginBottom(@s:'';@w:@default_w){
+  .baseSize(@type:margin-bottom;@now_s:@s;@w:@w);
+}
+.marginLeft(@s:'';@w:@default_w){
+  .baseSize(@type:margin-left;@now_s:@s;@w:@w);
+}
+
+
+//内边距
+.paddingTop(@s:'';@w:@default_w){
+  .baseSize(@type:padding-top;@now_s:@s;@w:@w);
+}
+.paddingRight(@s:'';@w:@default_w){
+  .baseSize(@type:padding-right;@now_s:@s;@w:@w);
+}
+.paddingBottom(@s:'';@w:@default_w){
+  .baseSize(@type:padding-bottom;@now_s:@s;@w:@w);
+}
+.paddingLeft(@s:'';@w:@default_w){
+  .baseSize(@type:padding-left;@now_s:@s;@w:@w);
+}
+
+
+///////////
+//多值
+//@type为必传值
+///////////
+
+//圆角
+.borderRadius(...){
+  .if(@ag) when(isnumber(@ag)){
+    border-radius:unit(@ag,@unit);
+  }
+  .if(@ag) when(isnumber(@ag) = false){
+    @len:~`@{ag}.length`;
+
+    .if(@l) when(@l = 2){
+      @lt:~`@{ag}[0]`;
+      @rt:~`@{ag}[1]`;
+
+      border-radius:unit(@lt,@unit) unit(@rt,@unit);
+    }
+    .if(@l) when(@l = 3){
+      @lt:~`@{ag}[0]`;
+      @rt:~`@{ag}[1]`;
+      @rb:~`@{ag}[2]`;
+
+      border-radius:unit(@lt,@unit) unit(@rt,@unit) unit(@rb,@unit);
+    }
+    .if(@l) when(@l = 4){
+      @lt:~`@{ag}[0]`;
+      @rt:~`@{ag}[1]`;
+      @rb:~`@{ag}[2]`;
+      @bl:~`@{ag}[3]`;
+
+      border-radius:unit(@lt,@unit) unit(@rt,@unit) unit(@rb,@unit) unit(@bl,@unit);
+    }
+    .if(@len);
+  }
+  .if(@arguments);
+}
+
+
+//外边距 @w为必传值
+.margin(@w,@rest...){
+  //判断是否为单个数字
+  .if(@r) when(isnumber(@r)){
+    margin:unit(@r*@w/@default_w,@unit);
+  }
+  //判断是否为单个字符串
+  .if(@r) when(isstring(@r)){
+    margin:~`@{r}`;
+  }
+  //不为单个数字或字符串
+  .if(@r) when(isnumber(@r) = false)and(isstring(@r) = false){
+    @len:~`@{r}.length`;
+
+    //两个参数
+    .if(@l) when(@l = 2){
+      @mgtb:~`@{r}[0]`;
+      @mgrl:~`@{r}[1]`;
+
+      .if(@mtb,@mrl) when(isstring(@mtb) = false)and(isstring(@mrl) = false){
+        margin:unit(@mtb*@w/@default_w,@unit) unit(@mrl*@w/@default_w,@unit);
+      }
+      .if(@mtb,@mrl) when(isstring(@mtb))and(isstring(@mrl) = false){
+        margin:@mtb unit(@mrl*@w/@default_w,@unit);
+      }
+      .if(@mtb,@mrl) when(isstring(@mtb) = false)and(isstring(@mrl)){
+        margin:unit(@mtb*@w/@default_w,@unit) @mrl;
+      }
+      .if(@mgtb,@mgrl);
+    }
+    //三个参数
+    .if(@l) when(@l = 3){
+      @mgt:~`@{r}[0]`;
+      @mgrl:~`@{r}[1]`;
+      @mgb:~`@{r}[2]`;
+
+      .if(@mt,@mrl,@mb) when(isstring(@mt) = false)and(isstring(@mrl) = false)and(isstring(@mb) = false){
+        margin:unit(@mt*@w/@default_w,@unit) unit(@mrl*@w/@default_w,@unit) unit(@mb*@w/@default_w,@unit);
+      }
+      .if(@mt,@mrl,@mb) when(isstring(@mt))and(isstring(@mrl) = false)and(isstring(@mb) = false){
+        margin:@mt unit(@mrl*@w/@default_w,@unit) unit(@mb*@w/@default_w,@unit);
+      }
+      .if(@mt,@mrl,@mb) when(isstring(@mt) = false)and(isstring(@mrl))and(isstring(@mb) = false){
+        margin:unit(@mt*@w/@default_w,@unit) @mrl unit(@mb*@w/@default_w,@unit);
+      }
+      .if(@mt,@mrl,@mb) when(isstring(@mt) = false)and(isstring(@mrl) = false)and(isstring(@mb)){
+        margin:unit(@mt*@w/@default_w,@unit) unit(@mrl*@w/@default_w,@unit) @mb;
+      }
+      .if(@mt,@mrl,@mb) when(isstring(@mt) = false)and(isstring(@mrl))and(isstring(@mb)){
+        margin:unit(@mt*@w/@default_w,@unit) @mrl @mb;
+      }
+      .if(@mt,@mrl,@mb) when(isstring(@mt))and(isstring(@mrl) = false)and(isstring(@mb)){
+        margin:@mt unit(@mrl*@w/@default_w,@unit);
+      }
+      .if(@mt,@mrl,@mb) when(isstring(@mt) = false)and(isstring(@mrl))and(isstring(@mb)){
+        margin:@mt @mrl unit(@mb*@w/@default_w,@unit);
+      }
+      .if(@mgt,@mgrl,@mgb);
+    }
+    //四个参数
+    .if(@l) when(@l = 4){
+      @mgt:~`@{r}[0]`;
+      @mgr:~`@{r}[1]`;
+      @mgb:~`@{r}[2]`;
+      @mgl:~`@{r}[3]`;
+
+      margin:unit(@mgt*@w/@default_w,@unit) unit(@mgr*@w/@default_w,@unit) unit(@mgb*@w/@default_w,@unit) unit(@mgl*@w/@default_w,@unit);
+    }
+    .if(@len);
+  }
+  .if(@rest);
+}
+
+//内边距 @w为必传值
+.padding(@w,@rest...){
+  .if(@r) when(isnumber(@r)){
+    padding:unit(@r*@w/@default_w,@unit);
+  }
+  .if(@r) when(isnumber(@r) = false){
+    @len:~`@{rest}.length`;
+
+    .if(@l) when(@l = 2){
+      @pdtb:~`@{rest}[0]`;
+      @pdrl:~`@{rest}[1]`;
+
+      padding:unit(@pdtb*@w/@default_w,@unit) unit(@pdrl*@w/@default_w,@unit);
+    }
+    .if(@l) when(@l = 3){
+      @pdt:~`@{rest}[0]`;
+      @pdrl:~`@{rest}[1]`;
+      @pdb:~`@{rest}[2]`;
+
+      padding:unit(@pdt*@w/@default_w,@unit) unit(@pdrl*@w/@default_w,@unit) unit(@pdb*@w/@default_w,@unit);
+    }
+    .if(@l) when(@l = 4){
+      @pdt:~`@{rest}[0]`;
+      @pdr:~`@{rest}[1]`;
+      @pdb:~`@{rest}[2]`;
+      @pdl:~`@{rest}[3]`;
+
+      padding:unit(@pdt*@w/@default_w,@unit) unit(@pdr*@w/@default_w,@unit) unit(@pdb*@w/@default_w,@unit) unit(@pdl*@w/@default_w,@unit);
+    }
+    .if(@len);
+  }
+  .if(@rest);
+}

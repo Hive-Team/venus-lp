@@ -1,0 +1,59 @@
+.assemble-pc(){
+	//隐藏微信
+	.sliding-window{display:none;}
+
+	//居中容器
+	.layout-center-box{
+		.layout-center();
+	}
+	//全局导航
+	.app-header{
+		.nav-page-ts();
+	}
+
+	//灰色背景容器
+	.gray-bg-box{
+		.color-bg-box(#f8f8f8);
+		.marginBottom(60);
+	}
+
+	//顶部幻灯
+	.slider-box{
+		.slider-top();
+		.point-box{ height:10px;position:absolute;left:50%;bottom:20px;z-index:100; display:none;}
+		.point-box .point{width:60px;height:6px;border-bottom:4px solid #666;float:left;background-color:#fff;opacity:0.4;margin-right:20px;}
+		.point-box .point-current{opacity:1;}
+	}
+
+
+	//版块标题
+	.block-tit-box{
+		.block-tit();
+	}
+	//居中图片
+	.photo-box{
+		.photo-img();
+	}
+	//通栏bannar
+	.bannar-all-box{
+		.bannar-all();
+	}
+
+	//查看更多按钮
+	.list-more-btn{
+		.more-btn();
+	}
+
+	//样片欣赏
+	.samples-view{
+		.samples-page();
+	}
+
+	//客片欣赏
+	.pringles-view{
+		.pringles-page();
+	}
+	.home-view{
+		.home-page();
+	}
+}

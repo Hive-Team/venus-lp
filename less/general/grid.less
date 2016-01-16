@@ -1,0 +1,45 @@
+//
+////=============
+////删格定义
+////=============
+//
+
+
+//流式删格
+.grid_percentage(@c_n:@c_n_12){
+  .looper(@i) when (@i < @c_n){
+    .col-@{i}{
+      float:left;
+      width:percentage(@i/@c_n);
+    }
+    .looper(@i + 1);
+  }
+  .looper(1);
+}
+
+
+//普通删格
+.grid_normal(@c_n:@c_n_12;@w_all:@w_960){
+  @w:@w_all/@c_n;
+
+  .looper(@i) when (@i < @c_n){
+    .col-@{i}{
+      float:left;
+      width:@w*@i;
+    }
+    .col-mg10-@{i}{
+      float:left;
+      width:@w*@i - @s_10;
+    }
+    .col-mg20-@{i}{
+      float:left;
+      width:@w*@i - @s_20;
+    }
+    .col-mg30-@{i}{
+      float:left;
+      width:@w*@i - @s_30;
+    }
+    .looper(@i + 1);
+  }
+  .looper(1);
+}

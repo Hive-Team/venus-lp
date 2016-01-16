@@ -1,0 +1,214 @@
+//其他组件
+
+//css图标-三角
+.arrow-1-hive(@_,@color:#fff,@arrow_w:0,@arrow_h:0){display:block;width:0;height:0;border-style:solid;display:block;}
+.arrow-1-hive(l,@color:#fff,@arrow_w:0,@arrow_h:0){
+  @w:unit(@arrow_w,@unit)/2;
+  @h:unit(@arrow_h,@unit);
+  border-color:transparent @color transparent transparent;border-width:@w @h @w 0;
+}
+.arrow-1-hive(r,@color:#fff,@arrow_w:0,@arrow_h:0){
+  @w:unit(@arrow_w,@unit)/2;
+  @h:unit(@arrow_h,@unit);
+  border-color:transparent transparent transparent @color;border-width:@w 0 @w @h;
+}
+.arrow-1-hive(b,@color:#fff,@arrow_w:0,@arrow_h:0){
+  @w:unit(@arrow_w,@unit)/2;
+  @h:unit(@arrow_h,@unit);
+  border-color:@color transparent transparent;border-width:@h @w 0;
+}
+.arrow-1-hive(t,@color:#fff,@arrow_w:0,@arrow_h:0){
+  @w:unit(@arrow_w,@unit)/2;
+  @h:unit(@arrow_h,@unit);
+  border-color:transparent transparent @color;border-width:0 @w @h;
+}
+
+
+
+//底部9大承诺 
+.promise-list(){
+	.promise{
+		.width(100%);
+		.paddingTop(60);
+		.marginTop(60);
+		background: #f8f8f8;
+	}
+	.bt-border{
+		.width(100%);
+		.height(151);
+		.margin(0,'auto');
+		border-bottom: 1px solid #959595;	
+	}
+	.btborder{border-top: 1px solid #959595; .height(152);}
+
+	.list-promise{
+		.width(1200);
+		.height(150);
+		.margin(0,'auto');
+		li{
+			.width(399);
+			.height(150);
+			border-left: 1px solid #959595;
+			float: left;
+			&:first-child{
+				border-left:1px solid #f8f8f8;
+			}
+			h2{
+				.fontSize(26);
+				.paddingLeft(80);
+				.height(40);
+				.lineHeight(40);
+				.marginTop(40);
+				font-weight: normal;
+				color: #666;background:url(../images/icon.png) 30px center no-repeat;
+			}
+			p{
+				.fontSize(14);
+				.paddingLeft(80);
+				.paddingTop(15); color: #666;
+			}
+			&:hover{ background: #fff;}
+		}
+	}
+}
+//底部9大承诺  end
+
+//推荐导航
+.recommendNav(){
+	.list-recommend{
+		.width(100%);
+		.height(705);
+		.margin(0,'auto');
+		// .clear();
+		a{
+			.width(100%);
+			.height(100%);
+			display: block;
+		}
+	}
+	.item-recomd-adv{
+		.width(480);
+		.height(705);
+		float: left;
+		.img-box{
+			.width(100%);
+			.height(100%);
+			display: block;
+		}
+		.cover-layer{
+			.cover-layer();
+		}
+		a{ position: relative;
+			&:hover{
+				.cover-layer{
+			 		.opacity(50);
+			 	}	
+			}
+		}
+	}
+	.recomd-nav{
+		.width(720);
+		.height(705);
+		overflow: hidden;
+		.item-box{
+			.width(355);
+			.height(350);
+			float: right;
+			.marginBottom(5);
+			.marginLeft(5);
+			position: relative;
+			.cover-layer{
+				.cover-layer();
+			}
+			img{
+				display:block;
+			}
+			&:hover{
+				 .cover-layer{
+				 	.opacity(50);
+				 }
+			}	
+		}
+	}
+
+}
+//分季选项卡
+.tab-4-jsbn-hive(@box_w:1200){
+	@show_num:5;
+	@item_mg:40;
+	@item_w:(@box_w - @item_mg*4)/@show_num;
+	@pic_h:@item_w/3*2;
+	@pic_bot:5;
+	@tit_h:42;
+	@box_h:@pic_h + @pic_bot + @tit_h;
+	@tit_s:12;
+	@arrow_w:60;
+	@arrow_h:30;
+	position: relative;margin-bottom:50px;
+	.height(@box_h);
+	.overflow-box{width: 100%; height: 100%; overflow: hidden; position: relative;}
+	.item-box{
+		overflow: hidden; cursor: pointer;position: absolute; left: 0; top: 0;
+		.height(@box_h);
+	}
+	.item{
+		float:left; text-align: center;height:100%;position:absolute;
+		.width(@item_w);
+		.marginRight(@item_mg);
+	}
+	.pos-box{
+		position:relative;width:100%;height:100%;
+		&:hover{
+			p{color:#e93b78;}
+		}
+	}
+	.click-box{position:absolute;width:100%;height:100%;z-index:100;}
+	.pic{
+		width: 100%;background: #999;
+		.height(@pic_h);
+		.marginBottom(@pic_bot);
+	}
+	img{width: 100%;height: 100%;}
+	p{
+		background-color: #f3f3f3;overflow:hidden;
+		.padding(@box_w,4,2);
+		.transitions-all(@time:0.2s);
+		span{
+			color: #333; font-weight:normal;overflow:hidden;
+			.fontSize(@tit_s);
+			.lineHeight(@tit_s);
+		}
+	}
+	.item-current{
+		p{
+			background-color:#ddd; 	
+			span{color: #e93b78; font-weight: bold;}
+		}
+	}
+	.arrow-lef{
+		position: absolute;cursor: pointer;
+		.left(-50);
+		.top(65);
+		.transitions-all(@time:0.2s);
+		.arrow-1-hive(l,@color:#eee,@arrow_w,@arrow_h);		
+	}
+	.arrow-rig{
+		position: absolute;cursor: pointer;
+		.right(-50);
+		.top(65);
+		.transitions-all(@time:0.2s);
+		.arrow-1-hive(r,@color:#eee,@arrow_w,@arrow_h);		
+	}
+	&:hover{
+		.arrow-lef{border-color:transparent #e1e1e1 transparent transparent;}
+		.arrow-rig{border-color:transparent transparent transparent #e1e1e1;}
+	}
+	.arrow-lef{
+		&:hover{border-color:transparent #e93b78 transparent transparent;}
+	}
+	.arrow-rig{
+		&:hover{border-color:transparent transparent transparent #e93b78;}
+	}
+}
+
+

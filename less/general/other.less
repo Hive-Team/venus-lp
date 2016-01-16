@@ -1,0 +1,99 @@
+//其他组件
+
+//底部9大承诺  S
+.promise{
+	.width(100%);
+	.paddingTop(60);
+	.marginTop(60);
+	background: #f8f8f8;
+}
+.bt-border{
+	.width(100%);
+	.height(151);
+	.margin(0,'auto');
+	border-bottom: 1px solid #959595;
+}
+.btborder{border-top: 1px solid #959595;.height(152);}
+
+.list-promise{
+	.width(1200);
+	.height(150);
+	.margin(0,'auto');
+	li{
+		.width(399);
+		.height(150);
+		border-left: 1px solid #959595;
+		float: left;
+		&:first-child{
+			border-left:1px solid #f8f8f8;
+		}
+		h2{
+			.fontSize(26);
+			.paddingLeft(80);
+			.height(40);
+			.lineHeight(40);
+			.marginTop(40);
+			font-weight: normal;
+			color: #666;background:url(../images/icon.png) 30px center no-repeat;
+		}
+		p{
+			.fontSize(14);
+			.paddingLeft(80);
+			.paddingTop(15); color: #666;
+		}
+		&:hover{ background: #fff;}
+	}
+}
+//底部9大承诺  end
+
+//推荐导航
+.list-recommend{
+	.width(1200);
+	.height(705);
+	.margin(0,'auto');
+	// .clear();
+	a{
+		.width(100%);
+		.height(100%);
+		display: block;
+	}
+}
+.item-recomd-adv{
+	.width(480);
+	.height(705);
+	float: left;
+	.cover-layer{
+		.cover-layer();
+	}
+	a{ position: relative;
+		&:hover{
+			.cover-layer{
+		 	.opacity(50);
+		 }
+		}
+	}
+}
+.recomd-nav{
+	.width(720);
+	.height(705);
+	overflow: hidden;
+	.item-box{
+		.width(355);
+		.height(350);
+		float: left;
+		.marginBottom(5);
+		.marginLeft(5);
+		position: relative;
+		.cover-layer{
+			.cover-layer();
+		}
+		img{
+			display:block;
+		}
+		&:hover{
+			 .cover-layer{
+			 	.opacity(50);
+			 }
+		}
+	}
+}

@@ -1,0 +1,58 @@
+//初始化
+*{outline:none;font-family:"微软雅黑";box-sizing:border-box;}
+body,div,ul,dl,li,h1,h2,h3,h4,h5,h6,dt,dd,img,a,span,p,table,td,i,input,button,textarea,form{padding:0;margin:0;border:none;}
+ul,li,dl,dt,dd,ol{list-style:none;}
+h1,h2,h3,h4{font-size:16px;color:#333;}
+a,span,p,font,b,i,strong{font-size:12px;}
+i{font-style:normal;}
+a{color:#333;text-decoration:none;}
+a:hover{text-decoration:none;}
+
+//顶层容器
+html,body{height:100%;width:100%;}
+
+
+//定位样式
+.absolute-box{position:absolute;display:block;}
+.relative-box{position:relative;display:block;}
+.fixed-box{position:fixed;display:block;}
+
+
+//基础样式
+.clearfix{*zoom:1;}
+.clearfix:after{content:".";display:block;clear:both;visibility:hidden;.height(0);}
+
+//清除浮动
+.clear(){
+  *zoom:1;
+  &:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+}
+
+//变化
+.transitions-all(@time:0.2s){-moz-transition:all @time ease 0s;-webkit-transition:all @time ease 0s;-o-transition:all @time ease 0s;-ms-transition:all @time ease 0s;transition:all @time ease 0s;}
+
+
+//透明
+.opacity(@z:0){opacity: @z/100;filter:Alpha(opacity=@z); }
+
+//logo
+.logo-box{
+	.height(40);
+	.width(407);
+	&.ico-sanya{background:url(../images/logo-sy.png) center center no-repeat;}
+}
+
+
+//ie8 空白点击问题
+.ie-click-base{
+  content:"";display:block;background-color: #ffffff; .opacity(0);
+  .width(100%);.height(100%);.top(0);
+}
+.ie-clik-1{&:after{
+  .ie-click-base;
+  position:absolute;
+}}
+.ie-clik-2{&:after{
+  .ie-click-base;
+  position:relative;
+}}
