@@ -22,7 +22,7 @@ class SuitesData extends Component {
 
   render() {
     let winW = $(window).width() * 2
-    let baseUrl = this.props.baseUrl
+    const suiteUrl = this.props.suiteUrl
 
     return (
       <ul className="suite-list layout-center-box">
@@ -30,7 +30,7 @@ class SuitesData extends Component {
           this.state.data.map(function(v,i){
             return(
               <li key={i} className="item-box">
-                <a href={'#/' + baseUrl + '/detail/' + v.id}>
+                <a href={suiteUrl + v.id}>
                   <div className="img-box">
                     <ImageItem
                       frameWidth={winW}
@@ -54,11 +54,11 @@ class SuitesData extends Component {
 
 SuitesData.propTypes = {
   suitesData : PropTypes.array.isRequired,
-  baseUrl : PropTypes.string.isRequired,
 }
 
 SuitesData.defaultProps = {
   suitesData : [],
+  suiteUrl : '#/suite/detail/',
 }
 
 export default SuitesData

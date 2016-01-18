@@ -22,7 +22,7 @@ class PringlesData extends Component {
 
   pringlesStyle_1() {
     let winW = $(window).width() * 2
-    let baseUrl = this.props.baseUrl
+    const pringlesUrl = this.props.pringlesUrl
 
     return (
      <ul className="list-Sample layout-center-box">
@@ -30,7 +30,7 @@ class PringlesData extends Component {
          this.state.data.map(function(v,i){
            return(
              <li key={i}>
-               <a href={'#/' + baseUrl + '/detail/' + v.id} className="imgbox">
+               <a href={pringlesUrl + v.id} className="imgbox">
                  <ImageItem
                    frameWidth={winW}
                    url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}
@@ -50,7 +50,7 @@ class PringlesData extends Component {
 
   render() {
     let winW = $(window).width() * 2
-    let baseUrl = this.props.baseUrl
+    const pringlesUrl = this.props.pringlesUrl
 
     if(this.props.pringlesStyle === 1){
       return (
@@ -59,7 +59,7 @@ class PringlesData extends Component {
              this.state.data.map(function(v,i){
                return(
                  <li key={i} className="item-box">
-                   <a href={'#/' + baseUrl + '/detail/' + v.id} className="img-box">
+                   <a href={pringlesUrl + v.id} className="img-box">
                      <ImageItem
                        frameWidth={winW}
                        url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}
@@ -86,12 +86,12 @@ class PringlesData extends Component {
 PringlesData.propTypes = {
   pringlesData : PropTypes.array.isRequired,
   pringlesStyle : PropTypes.number.isRequired,
-  baseUrl : PropTypes.string.isRequired,
 }
 
 PringlesData.defaultProps = {
   pringlesData : [],
   pringlesStyle : 1,
+  pringlesUrl : '#/pringles/detail/'
 }
 
 export default PringlesData

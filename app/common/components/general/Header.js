@@ -73,7 +73,7 @@ class Header extends Component {
 
           <ul className='drop-down-menu' id='J_drop_down_menu'>
             <li><a href='#/'>{`${'三亚'}首页`}</a></li>
-            <li><a href='#/samples'>作品欣赏</a></li>
+            <li><a href='#/sample'>作品欣赏</a></li>
             <li><a href='#/pringles'>客片欣赏</a></li>
           </ul>
         </div>
@@ -89,7 +89,7 @@ Header.propTypes = {
 Header.defaultProps = {
   title_conf : {
     '/' : '首页',
-    '/samples' : '作品欣赏',
+    '/sample' : '作品欣赏',
     '/pringles' : '客片片欣赏',
   },
   title : '标题',

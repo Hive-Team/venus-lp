@@ -22,7 +22,7 @@ class SamplesData extends Component {
 
   render() {
     let winW = $(window).width() * 2
-    let baseUrl = this.props.baseUrl
+    const sampleUrl = this.props.sampleUrl
 
     return (
       <ul className="recommend-list layout-center-box">
@@ -30,7 +30,7 @@ class SamplesData extends Component {
           this.state.data.map(function(v,i){
             return(
               <li key={i} className="item-box">
-                <a href={'#/' + baseUrl + '/detail/' + v.id} className="img-box">
+                <a href={sampleUrl + v.id} className="img-box">
                   <ImageItem
                     frameWidth={winW}
                     url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}
@@ -51,11 +51,11 @@ class SamplesData extends Component {
 
 SamplesData.propTypes = {
   samplesData : PropTypes.array.isRequired,
-  baseUrl : PropTypes.string.isRequired,
 }
 
 SamplesData.defaultProps = {
   samplesData : [],
+  sampleUrl : '#/sample/detail/',
 }
 
 export default SamplesData

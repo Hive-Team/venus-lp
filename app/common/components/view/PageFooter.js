@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 
-class Promise extends Component {
+class PageFooter extends Component {
   render() {
     return (
-      <div className="promise">
+      <div className="page-footer promise">
         <div className="block-tit-box">
           <h1><span>金色百年婚纱摄影</span><b>九大承诺</b></h1>
           <h2>Golden Century wedding photography nine commitments</h2>
         </div>
-       <div className="photo-box layout-center-box"><img src="./assets/images/promiseTxt.png" /></div>
-       <div className="bt-border btborder">
-          <ul className="list-promise">
-            <li><h2>全城最高性价比</h2><p>City maximum price </p></li>
-            <li><h2>先行制定拍摄计划</h2><p>City maximum price </p></li>
-            <li><h2>绝无任何隐形消费</h2><p>City maximum price </p></li>
-          </ul>
+         <div className="photo-box layout-center-box"><img src="./assets/images/promiseTxt.png" /></div>
+         <div className="bt-border btborder">
+            <ul className="list-promise">
+              <li><h2>全城最高性价比</h2><p>City maximum price </p></li>
+              <li><h2>先行制定拍摄计划</h2><p>City maximum price </p></li>
+              <li><h2>绝无任何隐形消费</h2><p>City maximum price </p></li>
+            </ul>
         </div>
         <div className="bt-border">
           <ul className="list-promise">
@@ -30,9 +30,10 @@ class Promise extends Component {
             <li><h2>400全程回访监督</h2><p>City maximum price </p></li>
           </ul>
         </div>
+        <div className="bannar-all-box"><a href="#"><img src="./assets/images/bt-bann-adv.jpg" /></a></div>
       </div>
     )
   }
 }
 
-export default Promise
+export default PageFooter

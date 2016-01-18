@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes , defaultProps } from 'react'
 import AppBody from '../general/AppBody'
 import Slider from '../general/Slider'
 import SamplesList from '../list/SamplesList'
 import PringlesList from '../list/PringlesList'
 import SuitesList from '../list/SuitesList'
-import Promise from '../view/Promise'
+import PageFooter from '../view/PageFooter'
 import { getRouter } from '../../config/Api'
 
 class Home extends Component {
@@ -26,9 +26,9 @@ class Home extends Component {
 
     request_adv_data('adv/trip_top',params)
     request_adv_data('adv/trip_hot_left',params)
-    request_list_data('sample/trip_list',params)
-    request_list_data('pringles/trip_list',pringles_params)
-    request_list_data('suite/trip_list',suite_params)
+    request_list_data('sample' + this.props.trip_list,params)
+    request_list_data('pringles' + this.props.trip_list,pringles_params)
+    request_list_data('suite' + this.props.trip_list,suite_params)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -79,7 +79,7 @@ class Home extends Component {
             <h2>Golden trip, so it's really good.</h2>
           </div>
 
-          <SamplesList samplesData={this.state.samplesData} baseUrl={'sample/trip_list'} />
+          <SamplesList samplesData={this.state.samplesData} />
 
           <div className="gray-bg-box">
             <div className="block-tit-box">
@@ -87,18 +87,16 @@ class Home extends Component {
               <h2>Golden trip, so it's really good.</h2>
             </div>
 
-            <PringlesList pringlesData={this.state.pringlesData} baseUrl={'pringles/trip_list'} pringlesStyle={2} />
+            <PringlesList pringlesData={this.state.pringlesData} pringlesStyle={2} />
           </div>
           <div className="block-tit-box">
             <h1><span>金色旅拍</span><b>套系报价</b></h1>
             <h2>Golden trip, so it's really good.</h2>
           </div>
 
-          <SuitesList suitesData={this.state.suitesData} baseUrl={'suites/trip_list'} />
+          <SuitesList suitesData={this.state.suitesData} />
 
-          <Promise/>
-
-          <div className="bannar-all-box"><div className="bannar"><img src="./assets/images/bt-bann-adv.jpg" /></div></div>
+          <PageFooter/>
         </div>
       </AppBody>
     )
@@ -108,6 +106,11 @@ class Home extends Component {
 Home.propTypes = {
   request_adv_data : PropTypes.func.isRequired,
   request_list_data : PropTypes.func.isRequired,
+  trip_list : PropTypes.string.isRequired,
+}
+
+Home.defaultProps = {
+  trip_list : '/trip_list',
 }
 
 export default Home

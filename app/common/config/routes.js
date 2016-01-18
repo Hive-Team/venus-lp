@@ -3,16 +3,17 @@ import React from 'react'
 import RoutHome from '../routers/RouteHome'
 import RouteSamples from '../routers/RouteSamples'
 import RoutePringles from '../routers/RoutePringles'
-import RouteItemDetail from '../routers/RouteItemDetail'
+import RouteImageDetail from '../routers/RouteImageDetail'
 
 const routes = (
     <Router>
       <Route path="/" component={RoutHome} />
-      <Route path="/samples" component={RouteSamples}>
-        <Route path="/:position/detail/:id" component={RouteItemDetail} />
-      </Route>
+      <Route path="/sample" component={RouteSamples} />
+      <Route path="/sample/detail/:id" component={RouteImageDetail} />
       <Route path="/pringles" component={RoutePringles} />
-      <Route path="/pringles/:id" component={RouteItemDetail} />
+      <Route path="/pringles/detail/:id" component={RouteImageDetail} />
+      <Route path="/suite" component={RoutePringles} />
+      <Route path="/suite/detail/:id" component={RouteImageDetail} />
     </Router>
 )
 
