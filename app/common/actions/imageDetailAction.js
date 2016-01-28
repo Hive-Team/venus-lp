@@ -14,12 +14,13 @@ export function img_detail_data(d) {
 
 //图片详情据请求
 export function request_data(r) {
+  let url = (r.indexOf('/') === 0)?r.slice(1):r
   return (dispatch, getState) => {
-    httpGET(r)
+    httpGET(url)
       .done(payload => {
         //console.log(payload)
-
-        dispatch(img_detail_data(payload.data))
+debugger
+        dispatch(img_detail_data(payload.data[0]))
       })
       .fail((err) => {
         console.log('error',err.responseText);

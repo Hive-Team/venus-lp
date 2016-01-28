@@ -5,7 +5,7 @@ import { httpGET , getRouter } from '../../config/Api'
 class ItemDetal extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {data:'[]'}
   }
 
   componentWillMount() {
@@ -26,7 +26,7 @@ class ItemDetal extends Component {
 
   render() {
     //console.log(this.state.data)
-    let imgArr = JSON.parse(this.state.data)
+    let imgArr = JSON.parse(this.state.data||'[]')
 
     return (
       <AppBody>

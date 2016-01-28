@@ -2,7 +2,7 @@ function baseUrl (){
   let config = {
     protocol : 'http://',
     host : location.hostname,       //location.hostname
-    port : location.port,              //location.port
+    port : (location.hostname === 'localhost')?8888:location.port,              //location.port
     endpoint : 'api',
   }
 

@@ -1,4 +1,4 @@
-import { Router, Route } from 'react-router'
+import { Router, Route,browserHistory } from 'react-router'
 import React from 'react'
 import RoutHome from '../routers/RouteHome'
 import RouteSamples from '../routers/RouteSamples'
@@ -6,7 +6,7 @@ import RoutePringles from '../routers/RoutePringles'
 import RouteImageDetail from '../routers/RouteImageDetail'
 
 const routes = (
-    <Router>
+    <Router history={browserHistory}>
       <Route path="/" component={RoutHome} />
       <Route path="/sample" component={RouteSamples} />
       <Route path="/sample/detail/:id" component={RouteImageDetail} />
