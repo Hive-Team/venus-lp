@@ -1344,7 +1344,6 @@ body {
 }
 .adaptation-1200 .samples-view .recommend-list li:hover .item-shadow {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 .adaptation-1200 .samples-view .gray-bg-box {
   padding-bottom: 60px;
@@ -1871,7 +1870,6 @@ body {
 }
 .adaptation-1200 .home-view .recommend-list li:hover .item-shadow {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 .adaptation-1200 .home-view .gray-bg-box {
   padding-bottom: 60px;

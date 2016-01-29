@@ -19,7 +19,6 @@ export function request_data(r) {
     httpGET(url)
       .done(payload => {
         //console.log(payload)
-debugger
         dispatch(img_detail_data(payload.data[0]))
       })
       .fail((err) => {
