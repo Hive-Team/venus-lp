@@ -60,7 +60,7 @@ class Header extends Component {
             <i className='arrow-r-1-ap'></i>
             <h1>{text || this.props.title}</h1>
           </div>
-          <div className='logo-box ico-sanya'></div>
+          <a style={{display:'block'}} href='//trip.jsbn.com'><div className='logo-box ico-sanya'></div></a>
           <div className='win-rig-btn' id='J_win_rig_btn'>
             <div className='menu-box'>
               <div className='wx-menu-btn'>
@@ -91,8 +91,9 @@ Header.defaultProps = {
     '/' : '首页',
     '/sample' : '作品欣赏',
     '/pringles' : '客片片欣赏',
+    '/suite':'套系'
   },
-  title : '标题',
+  title : '旅拍',
 }
 
 export default Header

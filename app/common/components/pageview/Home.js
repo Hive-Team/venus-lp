@@ -22,7 +22,7 @@ class Home extends Component {
     const { request_adv_data , request_list_data } = this.props
     const params = {pageIndex:1,pageSize:6}
     const pringles_params = {pageIndex:1,pageSize:8}
-    const suite_params = {pageIndex:1,pageSize:3}
+    const suite_params = {pageIndex:1,pageSize:4}
 
     request_adv_data('adv/trip_top',params)
     request_adv_data('adv/trip_hot_left',params)
@@ -55,20 +55,20 @@ class Home extends Component {
             <div className="photo-box layout-center-box"><img src="./assets/images/adv-bann.jpg" /></div>
             <div className="list-recommend layout-center-box">
               <div className="item-recomd-adv">
-                  <a className="img-box" href=""><img src="./assets/images/tour-artwork-img1.jpg" /><div className="cover-layer"></div></a>
+                  <a className="img-box" href=""><img src="//img.jsbn.com/images/tour-artwork-img1.jpg" /><div className="cover-layer"></div></a>
               </div>
               <ul className="recomd-nav">
                 <li className="item-box">
-                  <a href="#"><img src="./assets/images/tour-artwork-Navimg1.jpg" /><div className="cover-layer"></div></a>
+                  <a href="#/sample"><img src="//img.jsbn.com/images/tour-artwork-Navimg1.jpg" /><div className="cover-layer"></div></a>
                 </li>
                 <li className="item-box">
-                  <a href="#"><img src="./assets/images/tour-artwork-Navimg2.jpg" /><div className="cover-layer"></div></a>
+                  <a href="#/pringles"><img src="//img.jsbn.com/images/tour-artwork-Navimg2.jpg" /><div className="cover-layer"></div></a>
                 </li>
                 <li className="item-box">
-                  <a href="#"><img src="./assets/images/tour-artwork-Navimg3.jpg" /><div className="cover-layer"></div></a>
+                  <a href="#"><img src="//img.jsbn.com/images/tour-artwork-Navimg3.jpg" /><div className="cover-layer"></div></a>
                 </li>
                 <li className="item-box">
-                  <a href="#"><img src="./assets/images/tour-artwork-Navimg4.jpg" /><div className="cover-layer"></div></a>
+                  <a href="#"><img src="//img.jsbn.com/images/tour-artwork-Navimg4.jpg" /><div className="cover-layer"></div></a>
                 </li>
               </ul>
             </div>

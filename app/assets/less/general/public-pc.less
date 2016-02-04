@@ -55,16 +55,15 @@
 .bannar-all(){
   width:100%;position: relative;overflow: hidden;
   .bannar{
-    position: relative;left: 50%; text-align: center;width:1920px;margin-left:-960px;
+    position: relative;left: 50%; text-align: center;width:1920px;margin-left:-960px;display:block;
     img{display:block;width:100%;}
   }
 }
 
 //版块标题
 .block-tit(){
-  background: url(../images/icon-line.png) center bottom no-repeat;
-  .paddingBottom(12);
-  .paddingTop(60);
+  text-align:center;border-bottom:1px solid #ccc;  
+  .paddingTop(60); 
   h1{
     text-align: center;
     span{
@@ -80,8 +79,11 @@
     }
   }
   h2{
-    color: #999;text-align: center;font-weight: normal;
+    color: #999;text-align: center;font-weight: normal;display:inline-block;border-bottom:1px solid #3cb8cb;
     .fontSize(18);
+    .padding(@default_w,0,56,12);
+    .marginBottom(-1);
+    
   }
 }
 

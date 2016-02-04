@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import AppBody from '../general/AppBody'
 import { httpGET , getRouter } from '../../config/Api'
+import _ from 'lodash'
 
 class ItemDetal extends Component {
   constructor(props) {
@@ -33,7 +34,8 @@ class ItemDetal extends Component {
         <div className='item-detail'>
           <div className="photo-box">
           {
-            imgArr.map(function(v,i){
+// 详情图片是按照逆序从服务端给的。 并且由于是用一个字符串字段转换为对应到数组，因此服务端和前端无论缓存是否命中 都具备相同到顺序
+            _.map(imgArr/*_.reverse(imgArr)*/,function(v,i){
               return (
                 <img key={i} src={v} />
               )

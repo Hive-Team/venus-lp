@@ -30,7 +30,7 @@ class SamplesData extends Component {
           this.state.data.map(function(v,i){
             return(
               <li key={i} className="item-box">
-                <a href={sampleUrl + v.id} className="img-box">
+                <a href={sampleUrl + v.id} className="img-box" target='_blank'>
                   <ImageItem
                     frameWidth={winW}
                     url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}

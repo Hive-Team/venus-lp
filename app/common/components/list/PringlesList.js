@@ -30,7 +30,7 @@ class PringlesData extends Component {
          this.state.data.map(function(v,i){
            return(
              <li key={i}>
-               <a href={pringlesUrl + v.id} className="imgbox">
+               <a href={pringlesUrl + v.id} className="imgbox" target='_blank'>
                  <ImageItem
                    frameWidth={winW}
                    url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}

@@ -19,8 +19,8 @@ class Pringles extends Component {
 
   componentDidMount() {
     const { request_adv_data , request_list_data , pringles_list } = this.props
-    const params = {pageIndex:1,pageSize:6}
-    const suite_params = {pageIndex:1,pageSize:3}
+    const params = {pageIndex:1,pageSize:99}
+    const suite_params = {pageIndex:1,pageSize:4}
 
     request_adv_data('adv/pringles_trip_top',params)
     this.state.pringles.data.length < 1 && request_list_data('pringles' + pringles_list,params)

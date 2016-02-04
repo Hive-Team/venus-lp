@@ -19,8 +19,8 @@ class Samples extends Component {
 
   componentDidMount() {
     const { request_adv_data , request_list_data , sample_list } = this.props
-    const params = {pageIndex:1,pageSize:6}
-    const suite_params = {pageIndex:1,pageSize:3}
+    const params = {pageIndex:1,pageSize:99}
+    const suite_params = {pageIndex:1,pageSize:4}
 
     request_adv_data('adv/samples_trip_top',params)
     this.state.samples.data.length < 1 && request_list_data('sample' + sample_list,params)

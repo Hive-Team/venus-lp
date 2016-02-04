@@ -25,12 +25,12 @@ class PageFooter extends Component {
         </div>
         <div className="bt-border">
           <ul className="list-promise">
-            <li><h2>全场Dior,CHANEL美妆</h2><p>City maximum price </p></li>
-            <li><h2>主城九区没费送件上门</h2><p>City maximum price </p></li>
+            <li><h2>全场Dior&CHANEL美妆</h2><p>City maximum price </p></li>
+            <li><h2>主城九区免费送件上门</h2><p>City maximum price </p></li>
             <li><h2>400全程回访监督</h2><p>City maximum price </p></li>
           </ul>
         </div>
-        <div className="bannar-all-box"><a href="#"><img src="./assets/images/bt-bann-adv.jpg" /></a></div>
+        <div className="bannar-all-box"><a className='bannar' href="#"><img src="//img.jsbn.com/images/lb_sy_bottom.jpg" /></a></div>
       </div>
     )
   }

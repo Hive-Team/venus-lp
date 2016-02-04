@@ -53,7 +53,19 @@ $.fn.Slider = function(obj,func){
                     $(this).addClass(setting.changeClass);
                 }
             });
+            var sliderPlay = function(i){
+                $items.removeClass(setting.changeClass);
+                $points.removeClass(setting.pointCurClass);
+                $($items[i]).addClass(setting.changeClass);
+                $($points[i]).addClass(setting.pointCurClass);
+            }
+            var sliderIntervalFunc = function(){
+                return setInterval(function(){
+                    imgIndex = imgIndex < $items.length - 1 ? imgIndex + 1 : 0;
 
+                    sliderPlay(imgIndex);
+                },setting.time);
+            }
             var sliderInterval = sliderIntervalFunc();
 
             if($points.length > 1){
@@ -70,20 +82,9 @@ $.fn.Slider = function(obj,func){
                 });
             }
 
-            function sliderIntervalFunc(){
-                return setInterval(function(){
-                    imgIndex = imgIndex < $items.length - 1 ? imgIndex + 1 : 0;
 
-                    sliderPlay(imgIndex);
-                },setting.time);
-            }
 
-            function sliderPlay(i){
-                $items.removeClass(setting.changeClass);
-                $points.removeClass(setting.pointCurClass);
-                $($items[i]).addClass(setting.changeClass);
-                $($points[i]).addClass(setting.pointCurClass);
-            }
+
         }
         else if(setting.type == "Horizontal"){
             var itemWidth = $items.width() + setting.margin;

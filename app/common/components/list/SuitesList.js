@@ -23,14 +23,14 @@ class SuitesData extends Component {
   render() {
     let winW = $(window).width() * 2
     const suiteUrl = this.props.suiteUrl
-
+    
     return (
       <ul className="suite-list layout-center-box">
         {
           this.state.data.map(function(v,i){
             return(
               <li key={i} className="item-box">
-                <a href={suiteUrl + v.id}>
+                <a href={suiteUrl + v.id} target='_blank'>
                   <div className="img-box">
                     <ImageItem
                       frameWidth={winW}
