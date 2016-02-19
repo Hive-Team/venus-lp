@@ -48,10 +48,19 @@ class Header extends Component {
         height:0
       },300,function(){B_drop_down = false}))
     })
+
+    $('#J_HashAnchor').on('click',function(){
+      $('#J_SuiteAnchor')[0].scrollIntoView()
+      return false
+    })
   }
 
   render() {
-    let text = this.props.title_conf[getRouter().getPath]
+
+
+    let p = getRouter().getPath || '/'
+    p = '/'+p.split('/')[1]
+    let text = this.props.title_conf[p]
 
     return(
       <div className='app-header'>
@@ -75,6 +84,7 @@ class Header extends Component {
             <li><a href='#/'>{`${'三亚'}首页`}</a></li>
             <li><a href='#/sample'>作品欣赏</a></li>
             <li><a href='#/pringles'>客片欣赏</a></li>
+            <li><a href='#/' id='J_HashAnchor'>套系报价</a></li>
           </ul>
         </div>
       </div>
@@ -90,7 +100,7 @@ Header.defaultProps = {
   title_conf : {
     '/' : '首页',
     '/sample' : '作品欣赏',
-    '/pringles' : '客片片欣赏',
+    '/pringles' : '客片欣赏',
     '/suite':'套系'
   },
   title : '旅拍',

@@ -456,6 +456,7 @@ body {
   width: 100%;
 }
 .adaptation-mobile .bannar-all-box .bannar {
+  display: block;
   width: 140%;
   margin-left: -20%;
 }

@@ -36,7 +36,7 @@ class PringlesData extends Component {
                    url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}
                    />
               </a>
-              <a href="#" className="title-box">
+              <a href="#" className="title-box" target='_blank'>
                 <h2>{v.actorMaleName + ' & ' + v.actorFemaleName}</h2>
                 <p>{v.description}</p>
               </a>
@@ -59,7 +59,7 @@ class PringlesData extends Component {
              this.state.data.map(function(v,i){
                return(
                  <li key={i} className="item-box">
-                   <a href={pringlesUrl + v.id} className="img-box">
+                   <a href={pringlesUrl + v.id} className="img-box" target='_blank'>
                      <ImageItem
                        frameWidth={winW}
                        url={window.Core.platform === 'wx' && v.wechatUrl || v.coverUrl}

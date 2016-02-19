@@ -74,7 +74,7 @@ class Samples extends Component {
               <span onClick={this.clickMore.bind(this)}>查看更多</span>
             </div>
           </div>
-          <div className="block-tit-box">
+          <div id='J_SuiteAnchor' className="block-tit-box">
             <h1><span>金色旅拍</span><b>套系报价</b></h1>
             <h2>Golden trip, so it's really good.</h2>
           </div>
