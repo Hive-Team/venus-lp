@@ -6,6 +6,10 @@ import SuitesList from '../list/SuitesList'
 import PageFooter from '../view/PageFooter'
 import { httpGET } from '../../config/Api'
 
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as samplesActions from '../../actions/samplesAction'
+
 class Samples extends Component {
   constructor(props) {
     super(props)
@@ -98,4 +102,14 @@ Samples.defaultProps = {
   sample_list : '/samples_trip_list',
 }
 
-export default Samples
+function mapStateToProps(state) {
+  return {
+    samples: state.samples
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(samplesActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Samples)

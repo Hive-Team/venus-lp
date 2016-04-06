@@ -41,5 +41,4 @@
 
 var c = new Core(platform);
 
-
-  export default  c;
+export default  c;

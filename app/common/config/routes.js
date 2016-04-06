@@ -1,19 +1,19 @@
-import { Router, Route,browserHistory } from 'react-router'
+import { Router,Route,browserHistory } from 'react-router'
 import React from 'react'
-import RoutHome from '../routers/RouteHome'
-import RouteSamples from '../routers/RouteSamples'
-import RoutePringles from '../routers/RoutePringles'
-import RouteImageDetail from '../routers/RouteImageDetail'
+import Home from '../components/pageview/Home'
+import Samples from '../components/pageview/Samples'
+import Pringles from '../components/pageview/Pringles'
+import ImageDetail from '../components/pageview/ImageDetail'
 
 const routes = (
     <Router history={browserHistory}>
-      <Route path="/" component={RoutHome} />
-      <Route path="/sample" component={RouteSamples} />
-      <Route path="/sample/detail/:id" component={RouteImageDetail} />
-      <Route path="/pringles" component={RoutePringles} />
-      <Route path="/pringles/detail/:id" component={RouteImageDetail} />
-      <Route path="/suite" component={RoutePringles} />
-      <Route path="/suite/detail/:id" component={RouteImageDetail} />
+      <Route path="/" component={Home} />
+      <Route path="/sample" component={Samples} />
+      <Route path="/sample/detail/:id" component={ImageDetail} />
+      <Route path="/pringles" component={Pringles} />
+      <Route path="/pringles/detail/:id" component={ImageDetail} />
+      <Route path="/suite" component={Pringles} />
+      <Route path="/suite/detail/:id" component={ImageDetail} />
     </Router>
 )
 

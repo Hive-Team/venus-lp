@@ -3,7 +3,11 @@ import AppBody from '../general/AppBody'
 import { httpGET , getRouter } from '../../config/Api'
 import _ from 'lodash'
 
-class ItemDetal extends Component {
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as imageDetailAction from '../../actions/imageDetailAction'
+
+class ImageDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {data:'[]'}
@@ -48,8 +52,18 @@ class ItemDetal extends Component {
   }
 }
 
-ItemDetal.propTypes = {
+ImageDetail.propTypes = {
   request_data: PropTypes.func.isRequired,
 }
 
-export default ItemDetal
+function mapStateToProps(state) {
+  return {
+    imageDetail: state.imageDetail
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(imageDetailAction, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageDetail)

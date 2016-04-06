@@ -6,6 +6,10 @@ import SuitesList from '../list/SuitesList'
 import PageFooter from '../view/PageFooter'
 import { httpGET } from '../../config/Api'
 
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as pringlesAcitions from '../../actions/pringlesAction'
+
 class Pringles extends Component {
   constructor(props) {
     super(props)
@@ -101,4 +105,14 @@ Pringles.defaultProps = {
   pringles_list : '/pringles_trip_list',
 }
 
-export default Pringles
+function mapStateToProps(state) {
+  return {
+    pringles: state.pringles
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(pringlesAcitions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pringles)

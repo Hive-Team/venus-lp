@@ -1,4 +1,4 @@
-import React, { Component, PropTypes , defaultProps } from 'react'
+import React, { Component , PropTypes , defaultProps } from 'react'
 import AppBody from '../general/AppBody'
 import Slider from '../general/Slider'
 import SamplesList from '../list/SamplesList'
@@ -6,6 +6,10 @@ import PringlesList from '../list/PringlesList'
 import SuitesList from '../list/SuitesList'
 import PageFooter from '../view/PageFooter'
 import { getRouter } from '../../config/Api'
+
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as homeActions from '../../actions/homeAction'
 
 class Home extends Component {
   constructor(props) {
@@ -113,4 +117,14 @@ Home.defaultProps = {
   trip_list : '/trip_list',
 }
 
-export default Home
+function mapStateToProps(state) {
+  return {
+    home: state.home
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(homeActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
